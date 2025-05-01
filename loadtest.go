@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	baseURL := flag.String("url", "https://cad-backend-dev-l2yi2.ondigitalocean.app/api/incidents", "Base URL to test")
+	baseURL := flag.String("url", "", "Base URL to test")
 	numRequests := flag.Int("n", 100, "Number of requests to send")
 	concurrency := flag.Int("c", 10, "Number of concurrent requests")
 	timeout := flag.Int("t", 5, "Timeout in seconds")
@@ -20,7 +20,7 @@ func main() {
 	debugFlag := flag.Bool("debug", false, "Show detailed debug info")
 	flag.Parse()
 
-	authToken := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlN1cGVyIEFkbWluIiwiaXNTdGFmZiI6dHJ1ZSwiaXNBZG1pbiI6ZmFsc2UsImFyY2hpdmVkIjpmYWxzZSwiaW5pdGlhbHMiOiJTVVAiLCJpZCI6InN1cGVyQWRtaW4iLCJmaXJzdE5hbWUiOiJTdXBlciIsImxhc3ROYW1lIjoiQWRtaW4iLCJwZW5kaW5nIjpmYWxzZSwiYXJjaGl2ZWRBdCI6bnVsbCwiZW1haWwiOiJzdXBlcmFkbWluQG5ha2VkZGV2LmNvbSIsImFsZXJ0X2VtYWlsIjpudWxsLCJlbWFpbEFsZXJ0cyI6ZmFsc2UsInZhY2F0aW9uTW9kZSI6ZmFsc2UsInRlbXBBdXRoVG9rZW4iOm51bGwsInBob25lIjoiMzEzMjQ4NTM2OSIsInNob3J0TmFtZSI6IlNVUCIsImxvY2F0aW9uIjpudWxsLCJmaXJzdExvZ2luQXQiOiIyMDI1LTA0LTA2VDEyOjQ1OjM4LjAwMFoiLCJsYXN0TG9naW5BdCI6IjIwMjUtMDQtMjhUMjM6NTk6MzcuNDU4WiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTNUMDA6NTU6MjcuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDQtMjhUMjM6NTk6MzcuNDU4WiIsIkJ1c2luZXNzSWQiOm51bGwsIkF2YXRhcklkIjpudWxsLCJBdmF0YXIiOm51bGwsIkJ1c2luZXNzIjpudWxsLCJSb2xlcyI6W3siaWQiOiJzdXBlckFkbWluIiwibmFtZSI6IlN1cGVyIEFkbWluIiwiaXNTdGFmZiI6dHJ1ZX1dLCJpYXQiOjE3NDU4ODQ3Nzd9.SjGl-YN7aEMnaTfNPpODBDZVHw5BuHzvyo9kXSwElZY"
+	authToken := ""
 
 	fmt.Printf("Starting load test against %s\n", *baseURL)
 	fmt.Printf("Sending %d requests with %d concurrent workers\n", *numRequests, *concurrency)
